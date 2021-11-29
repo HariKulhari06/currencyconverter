@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.asssignmentsdktesttask.databinding.FragmentDashboardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardFragment : Fragment() {
 
-    private val viewModel:DashboardViewModel by viewModels()
+    private val viewModel: DashboardViewModel by viewModels()
 
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
