@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.asssignmentsdktesttask.ui.dashboard.DashboardFragment"
+        android:name="com.example.asssignmentsdktesttask.ui.dashboard.CurrencyConverterFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_dashboard"/>
+        tools:layout="@layout/fragment_currency_converter" />
 
 </navigation>

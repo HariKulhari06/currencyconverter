@@ -23,6 +23,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        buildTypes.each {
+            it.buildConfigField 'String', 'FIXER_BASE_URL', "$FixerBaseUrl"
+            it.buildConfigField 'String', 'FIXER_ACCESS_KEY', "$FixerAPIAccessKey"
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,6 +46,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation "androidx.core:core-ktx:1.7.0"
 
     // Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
@@ -52,8 +58,37 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
 
     // Dagger Hilt
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    def hilt = "2.38.1"
+    implementation "com.google.dagger:hilt-android:$hilt"
+    kapt "com.google.dagger:hilt-compiler:$hilt"
+
+    // Epoxy RecyclerView
+    def epoxy = "4.6.2"
+    implementation "com.airbnb.android:epoxy:$epoxy"
+    implementation "com.airbnb.android:epoxy-databinding:$epoxy"
+    kapt "com.airbnb.android:epoxy-processor:$epoxy"
+
+    // Rxjava
+    def rxJava = "3.0.0"
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxJava"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxJava"
+
+    // Retrofit
+    def retrofit = "2.9.0"
+    def okhttp = "4.9.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofit"
+
+    // Room Database
+    def room_version = "2.3.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
 
     // Testing
     androidTestImplementation 'androidx.test:rules:1.4.0'
