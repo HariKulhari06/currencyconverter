@@ -5,9 +5,19 @@
       <map>
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/activity_main.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/content_main.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_currency_converter.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_dashboard.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_first.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_second.xml" value="0.12222222222222222" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection.xml" value="0.209375" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection_bottom_sheet_list_dialog.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection_bottom_sheet_list_dialog_item.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_add_currency.xml" value="0.1824074074074074" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_btn_add_currency.xml" value="0.209375" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_currency.xml" value="0.209375" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_currency_card.xml" value="0.33" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_last_sync_cell.xml" value="0.33" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_symbol_selectable.xml" value="0.25" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/xml/network_security_config.xml" value="0.18333333333333332" />
       </map>
     </option>

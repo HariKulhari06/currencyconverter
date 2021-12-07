@@ -1,4 +1,4 @@
-import com.example.asssignmentsdktesttask.model.LoadState
+import com.example.asssignmentsdktesttask.domain.model.LoadState
 import kotlinx.coroutines.flow.*
 
 inline fun <ResultType, RequestType> networkBoundResource(

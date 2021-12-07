@@ -1,6 +1,6 @@
 package com.example.asssignmentsdktesttask.utils.ext
 
-import com.example.asssignmentsdktesttask.model.LoadState
+import com.example.asssignmentsdktesttask.domain.model.LoadState
 import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.HttpException

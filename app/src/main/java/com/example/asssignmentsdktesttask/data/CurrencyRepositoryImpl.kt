@@ -3,9 +3,9 @@ package com.example.asssignmentsdktesttask.data
 import com.example.asssignmentsdktesttask.data.db.database.CurrencyDatabase
 import com.example.asssignmentsdktesttask.data.network.response.SupportedSymbolsResponse
 import com.example.asssignmentsdktesttask.data.network.service.FixerCurrencyService
-import com.example.asssignmentsdktesttask.model.LoadState
-import com.example.asssignmentsdktesttask.model.Symbol
-import com.example.asssignmentsdktesttask.model.repository.CurrencyRepository
+import com.example.asssignmentsdktesttask.domain.model.LoadState
+import com.example.asssignmentsdktesttask.domain.model.Symbol
+import com.example.asssignmentsdktesttask.domain.repository.CurrencyRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import networkBoundResource
@@ -26,5 +26,9 @@ class CurrencyRepositoryImpl @Inject constructor(
             },
             shouldFetch = { it.isNullOrEmpty() }
         )
+    }
+
+    override fun searchSymbols(query: String): Flow<List<Symbol>> {
+        return currencyDatabase.searchSymbols(query)
     }
 }

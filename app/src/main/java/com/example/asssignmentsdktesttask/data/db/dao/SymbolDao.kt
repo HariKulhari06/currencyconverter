@@ -10,4 +10,7 @@ abstract class SymbolDao : BaseDao<SymbolEntity> {
 
     @Query("select * from symbol")
     abstract fun getSymbols(): Flow<List<SymbolEntity>>
+
+    @Query("select * from symbol where symbol like :query or full_name like :query")
+    abstract fun search(query: String): Flow<List<SymbolEntity>>
 }

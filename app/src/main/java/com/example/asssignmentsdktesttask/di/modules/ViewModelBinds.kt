@@ -3,7 +3,7 @@ package com.example.asssignmentsdktesttask.di.modules
 import com.example.asssignmentsdktesttask.data.CurrencyRepositoryImpl
 import com.example.asssignmentsdktesttask.data.db.CurrencyDatabaseImpl
 import com.example.asssignmentsdktesttask.data.db.database.CurrencyDatabase
-import com.example.asssignmentsdktesttask.model.repository.CurrencyRepository
+import com.example.asssignmentsdktesttask.domain.repository.CurrencyRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

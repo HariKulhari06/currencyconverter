@@ -1,4 +1,4 @@
-package com.example.asssignmentsdktesttask.model
+package com.example.asssignmentsdktesttask.domain.model
 
 interface Mapper<F, T> {
     suspend fun map(from: F): T

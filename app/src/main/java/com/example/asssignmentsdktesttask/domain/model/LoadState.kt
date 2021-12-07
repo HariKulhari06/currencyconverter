@@ -1,4 +1,4 @@
-package com.example.asssignmentsdktesttask.model
+package com.example.asssignmentsdktesttask.domain.model
 
 interface ErrorGettable {
     fun getErrorIfExists(): Throwable?
