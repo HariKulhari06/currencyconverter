@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="amount"
+            type="java.lang.Double" />
+
+        <variable
+            name="baseCurrency"
+            type="com.example.asssignmentsdktesttask.domain.model.Symbol" />
+
+        <variable
+            name="symbol"
+            type="com.example.asssignmentsdktesttask.domain.model.Symbol" />
+
+        <variable
+            name="rate"
+            type="com.example.asssignmentsdktesttask.domain.model.Rate" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -23,38 +39,38 @@
                 android:id="@+id/text_view_symbol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="INR"
+                android:text="@{symbol.symbol}"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="INR" />
 
-            <EditText
+
+            <TextView
                 android:id="@+id/text_view_amount"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:background="@android:color/transparent"
-                android:gravity="end"
-                android:imeOptions="actionDone"
-                android:inputType="number"
                 android:maxLines="1"
-                android:minWidth="100dp"
-                android:text="55555"
+                android:gravity="end"
+                android:text="@{rate.getRateForAmount(amount)}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/text_view_symbol"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="55555" />
 
             <TextView
                 android:id="@+id/text_view_rate_per_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1 USD = 75.3415 INR"
+                android:text="@{rate.getSingleUnitRate(baseCurrency.symbol)}"
                 android:textAppearance="?attr/textAppearanceCaption"
-
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_amount" />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_amount"
+                tools:text="1 USD = 75.3415 INR" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

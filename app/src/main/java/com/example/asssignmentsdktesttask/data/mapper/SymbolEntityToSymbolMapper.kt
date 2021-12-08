@@ -10,7 +10,8 @@ class SymbolEntityToSymbolMapper @Inject constructor() :
     override suspend fun map(from: SymbolEntity): Symbol {
         return Symbol(
             symbol = from.symbol,
-            fullName = from.fullName
+            fullName = from.fullName,
+            isSelected = from.isSelected
         )
     }
 }

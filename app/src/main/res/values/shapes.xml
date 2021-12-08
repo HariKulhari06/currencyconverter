@@ -10,6 +10,6 @@
     </style>
 
     <style name="ShapeAppearance.FixerApp.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
-        <item name="cornerSize">4dp</item>
+        <item name="cornerSize">0dp</item>
     </style>
 </resources>

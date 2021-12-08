@@ -3,21 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/drawable/bg_search_view.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/drawable/ic_round_check_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/font/work_sans.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/font/work_sans_bold.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/font/work_sans_extrabold.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/font/work_sans_medium.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/font/work_sans_semibold.xml" value="0.2" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/activity_main.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/content_main.xml" value="0.12222222222222222" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_currency_converter.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_dashboard.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_first.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_second.xml" value="0.12222222222222222" />
-        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection.xml" value="0.209375" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection.xml" value="0.33" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection_bottom_sheet_list_dialog.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/fragment_symbol_selection_bottom_sheet_list_dialog_item.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_add_currency.xml" value="0.1824074074074074" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_base_currency_card.xml" value="0.209375" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_btn_add_currency.xml" value="0.209375" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_currency.xml" value="0.209375" />
-        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_currency_card.xml" value="0.33" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_currency_card.xml" value="0.2" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_last_sync_cell.xml" value="0.33" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/layout/item_symbol_selectable.xml" value="0.25" />
+        <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/menu/currency_selection_menu.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Hari/asssignmentsdktesttask/app/src/main/res/xml/network_security_config.xml" value="0.18333333333333332" />
       </map>
     </option>

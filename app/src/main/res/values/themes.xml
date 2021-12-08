@@ -20,7 +20,25 @@
         </item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.FixerApp.LargeComponent
         </item>
-        ...
+
+        <item name="textAppearanceHeadline2">@style/TextAppearance.FixerApp.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.FixerApp.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.FixerApp.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.FixerApp.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.FixerApp.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.FixerApp.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.FixerApp.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.FixerApp.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.FixerApp.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.FixerApp.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.FixerApp.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.FixerApp.Overline</item>
+
+        <item name="emphasisHighAlpha">0.87</item>
+
+        <item name="emphasisMediumAlpha">0.60</item>
+
+        <item name="emphasisDisabledAlpha">0.38</item>
     </style>
 
     <style name="Theme.FixerApp.NoActionBar">

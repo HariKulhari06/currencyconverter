@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="symbol"
             type="com.example.asssignmentsdktesttask.domain.model.Symbol" />
@@ -20,14 +22,17 @@
         android:background="?selectableItemBackground"
         android:onClick="@{clickListener}"
         android:paddingHorizontal="@dimen/recycler_view_item_space"
-        android:paddingVertical="6dp">
+        android:paddingVertical="10dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/recycler_view_item_space"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@{symbol.getSymbolWithFillName()}"
             android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_check"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,9 +43,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_check_24"
+            android:visibility="@{symbol.selected ? View.VISIBLE : View.GONE, default= gone}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

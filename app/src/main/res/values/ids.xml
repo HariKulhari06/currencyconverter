@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="epoxy_viewbinding" type="id" />
+    <item name="last_sync_model" type="id" />
+    <item name="base_currency_model" type="id" />
+    <item name="add_currency_model" type="id" />
+</resources>

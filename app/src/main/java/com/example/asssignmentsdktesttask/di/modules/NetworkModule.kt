@@ -1,6 +1,7 @@
 package com.example.asssignmentsdktesttask.di.modules
 
 import com.example.asssignmentsdktesttask.BuildConfig
+import com.example.asssignmentsdktesttask.data.network.deserializers.LatestRateResponseDeserializer
 import com.example.asssignmentsdktesttask.data.network.deserializers.SupportedSymbolsDeserializer
 import com.example.asssignmentsdktesttask.data.network.interceptor.ApiKeyInterceptor
 import com.example.asssignmentsdktesttask.data.network.response.SupportedSymbolsResponse
@@ -31,12 +32,17 @@ class NetworkModule {
 
     @Provides
     fun provideGson(
-        supportedSymbolsDeserializer: SupportedSymbolsDeserializer
+        supportedSymbolsDeserializer: SupportedSymbolsDeserializer,
+        latestRateResponseDeserializer: LatestRateResponseDeserializer
     ): Gson {
         val gsonBuilder = GsonBuilder()
         gsonBuilder.registerTypeAdapter(
             SupportedSymbolsResponse::class.java,
             supportedSymbolsDeserializer
+        )
+        gsonBuilder.registerTypeAdapter(
+            LatestRateResponseDeserializer::class.java,
+            latestRateResponseDeserializer
         )
         return gsonBuilder.create()
     }

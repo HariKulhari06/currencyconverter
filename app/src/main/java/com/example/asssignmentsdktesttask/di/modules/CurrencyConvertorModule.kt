@@ -1,8 +1,7 @@
 package com.example.asssignmentsdktesttask.di.modules
 
 import com.example.asssignmentsdktesttask.domain.repository.CurrencyRepository
-import com.example.asssignmentsdktesttask.domain.usecase.CurrencyConverterUseCases
-import com.example.asssignmentsdktesttask.domain.usecase.GetSymbolUseCase
+import com.example.asssignmentsdktesttask.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +14,10 @@ class CurrencyConvertorModule {
     @Provides
     fun provideProfileUseCases(repository: CurrencyRepository): CurrencyConverterUseCases {
         return CurrencyConverterUseCases(
-            getSymbolUseCase = GetSymbolUseCase(repository)
+            getSymbolUseCase = GetSymbolUseCase(repository),
+            getBaseCurrencyUseCase = GetBaseCurrencyUseCase(repository),
+            getSelectedCurrencyUseCase = GetSelectedCurrencyUseCase(repository),
+            convertCurrencyUseCase = ConvertCurrencyUseCase(repository)
         )
     }
 }

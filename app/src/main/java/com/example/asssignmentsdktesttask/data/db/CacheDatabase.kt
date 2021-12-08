@@ -2,6 +2,7 @@ package com.example.asssignmentsdktesttask.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.example.asssignmentsdktesttask.data.db.dao.RateDao
 import com.example.asssignmentsdktesttask.data.db.dao.SymbolDao
 import com.example.asssignmentsdktesttask.data.db.entity.RateEntity
 import com.example.asssignmentsdktesttask.data.db.entity.SymbolEntity
@@ -16,4 +17,5 @@ import com.example.asssignmentsdktesttask.data.db.entity.SymbolEntity
 )
 abstract class CacheDatabase : RoomDatabase() {
     abstract fun symbolDao(): SymbolDao
+    abstract fun rateDao(): RateDao
 }

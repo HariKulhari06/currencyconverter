@@ -35,4 +35,7 @@ class AppModule {
     @Provides
     fun provideSymbolDao(database: CacheDatabase) = database.symbolDao()
 
+    @Provides
+    fun provideRateDao(database: CacheDatabase) = database.rateDao()
+
 }

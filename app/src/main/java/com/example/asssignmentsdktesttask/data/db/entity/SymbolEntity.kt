@@ -9,4 +9,5 @@ import androidx.room.PrimaryKey
 data class SymbolEntity(
     @PrimaryKey @NonNull val symbol: String,
     @ColumnInfo(name = "full_name") val fullName: String,
+    @ColumnInfo(name = "is_selected") val isSelected: Boolean = false,
 ) : BaseEntity
