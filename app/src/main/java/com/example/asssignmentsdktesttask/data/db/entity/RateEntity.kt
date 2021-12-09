@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class RateEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "symbol") val symbol: String,
-    @ColumnInfo(name = "time_stamp") val timeStamp: Int,
+    @ColumnInfo(name = "time_stamp") val timeStamp: Long,
     @ColumnInfo(name = "date") val date: String,
     @ColumnInfo(name = "rate") val rate: Double? = null,
 ) : BaseEntity

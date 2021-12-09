@@ -18,7 +18,7 @@ class LatestRateResponseDeserializer @Inject constructor() :
     ): LatestRateResponse {
         val jsonObject = json.asJsonObject
 
-        val timestamp = jsonObject.get("timestamp").asInt
+        val timestamp = jsonObject.get("timestamp").asLong
         val date = jsonObject.get("date").asString
 
         if (jsonObject.get("success").asBoolean) {

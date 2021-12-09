@@ -18,5 +18,5 @@ interface CurrencyRepository {
 
     fun getSelectedCurrency(): Flow<List<Currency>>
 
-    fun convertCurrency(amount: String): Flow<Unit>
+    suspend fun convertCurrency(amount: String): Flow<Unit>
 }

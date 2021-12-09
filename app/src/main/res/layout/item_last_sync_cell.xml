@@ -33,7 +33,6 @@
             app:layout_constraintStart_toStartOf="@+id/progress_bar"
             app:layout_constraintTop_toTopOf="@+id/progress_bar" />
 
-
         <TextView
             android:id="@+id/text_view_symbol"
             android:layout_width="0dp"

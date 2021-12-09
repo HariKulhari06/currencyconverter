@@ -9,7 +9,6 @@ import com.example.asssignmentsdktesttask.domain.model.Symbol
 import com.example.asssignmentsdktesttask.domain.repository.CurrencyRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import networkBoundResource
 import javax.inject.Inject
@@ -60,11 +59,11 @@ class CurrencyRepositoryImpl @Inject constructor(
         return currencyDatabase.getSelectedCurrencyWithRate()
     }
 
-    override fun convertCurrency(amount: String): Flow<Unit> {
-        return getSelectedCurrency()
-            .flatMapLatest { selectedCurrencies ->
-                fixerCurrencyService.getLatest(selectedCurrencies.joinToString(separator = ",") { it.symbol.symbol })
-            }
+    override suspend fun convertCurrency(amount: String): Flow<Unit> {
+        return fixerCurrencyService
+            .getLatest(
+                getSelectedCurrency().first().joinToString(separator = ",") { it.symbol.symbol }
+            )
             .map { response ->
                 currencyDatabase.insertRates(response.rates)
             }

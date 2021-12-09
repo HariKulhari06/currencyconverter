@@ -3,6 +3,7 @@ package com.example.asssignmentsdktesttask.ui.dashboard
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -12,7 +13,6 @@ import com.example.asssignmentsdktesttask.btnAddCurrency
 import com.example.asssignmentsdktesttask.currencyCard
 import com.example.asssignmentsdktesttask.databinding.FragmentCurrencyConverterBinding
 import com.example.asssignmentsdktesttask.domain.model.Symbol
-import com.example.asssignmentsdktesttask.lastSyncCell
 import com.example.asssignmentsdktesttask.ui.dashboard.views.BaseCurrencyModel
 import com.example.asssignmentsdktesttask.ui.symbolselection.SymbolSelectionFragment
 import com.example.asssignmentsdktesttask.utils.SpacesItemDecoration
@@ -59,12 +59,11 @@ class CurrencyConverterFragment : Fragment(R.layout.fragment_currency_converter)
             if (uiState.isLoading || uiState.error != null) {
                 return@withModels
             } else {
-                lastSyncCell {
-                    id(R.id.last_sync_model)
-                }
                 uiState.baseCurrency?.let { baseCurrency: Symbol ->
                     BaseCurrencyModel(
+                        lifecycleScope,
                         baseCurrency,
+                        uiState.currencies?.firstOrNull()?.rate?.timeStamp,
                         convertCurrency = { viewModel.convertCurrency(it) })
                         .id(R.id.base_currency_model)
                         .addTo(this)
@@ -92,8 +91,13 @@ class CurrencyConverterFragment : Fragment(R.layout.fragment_currency_converter)
     }
 
     private fun addCurrency() {
-        SymbolSelectionFragment()
-            .show(childFragmentManager, SymbolSelectionFragment.TAG)
+        setFragmentResultListener("requestKey") { requestKey, bundle ->
+            val result = bundle.getBoolean("bundleKey")
+            if (result) {
+                viewModel.convertCurrency("100")
+            }
+        }
+        SymbolSelectionFragment().show(childFragmentManager, SymbolSelectionFragment.TAG)
     }
 
     override fun onDestroyView() {

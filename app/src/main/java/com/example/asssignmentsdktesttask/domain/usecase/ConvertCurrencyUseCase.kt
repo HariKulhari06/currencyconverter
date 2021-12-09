@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 class ConvertCurrencyUseCase(
     private val currencyRepository: CurrencyRepository
 ) {
-    operator fun invoke(amount: String): Flow<LoadState<Unit>> {
+    suspend operator fun invoke(amount: String): Flow<LoadState<Unit>> {
         return currencyRepository.convertCurrency(amount).toLoadingState()
     }
 }

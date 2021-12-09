@@ -17,5 +17,5 @@ data class Rate(
     val rate: Double?,
     val symbol: String,
     val date: String,
-    val timestamp: Int,
+    val timestamp: Long,
 )

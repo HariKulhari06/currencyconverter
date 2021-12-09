@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.asssignmentsdktesttask.R
 import com.example.asssignmentsdktesttask.databinding.FragmentSymbolSelectionBinding
 import com.example.asssignmentsdktesttask.symbolSelectable
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -41,10 +44,7 @@ class SymbolSelectionFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbar.setNavigationOnClickListener { dismiss() }
-
-        binding.list.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-
+        initViews()
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -57,6 +57,10 @@ class SymbolSelectionFragment : BottomSheetDialogFragment() {
                                         id(symbol.symbol)
                                         symbol(symbol)
                                         clickListener { _ ->
+                                            setFragmentResult(
+                                                "requestKey",
+                                                bundleOf("bundleKey" to true)
+                                            )
                                             viewModel.toggleSelection(symbol.symbol)
                                         }
                                     }
@@ -68,6 +72,19 @@ class SymbolSelectionFragment : BottomSheetDialogFragment() {
 
 
         }
+    }
+
+    private fun initViews() {
+        binding.toolbar.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.itemId == R.id.action_done) {
+                dismiss()
+                return@setOnMenuItemClickListener true
+            }
+
+            return@setOnMenuItemClickListener false
+        }
+
+        binding.list.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
     }
 
     override fun onDestroyView() {

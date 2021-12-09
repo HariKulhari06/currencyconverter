@@ -25,7 +25,6 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:menu="@menu/currency_selection_menu"
-                app:navigationIcon="@drawable/ic_baseline_close_24"
                 app:popupTheme="@style/Theme.FixerApp.PopupOverlay"
                 app:title="@string/select_currency"
                 app:titleCentered="true" />

@@ -3,7 +3,7 @@ package com.example.asssignmentsdktesttask.domain.model
 
 data class Rate(
     val symbol: String,
-    val timeStamp: Int,
+    val timeStamp: Long,
     val date: String,
     val rate: Double?
 ) {
