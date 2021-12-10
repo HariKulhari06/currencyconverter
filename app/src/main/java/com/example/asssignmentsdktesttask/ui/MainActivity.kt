@@ -3,6 +3,7 @@ package com.example.asssignmentsdktesttask.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         setUpNavController()
+
+        ViewModelProvider(this).get(SystemViewModel::class.java)
     }
 
     private fun setUpNavController() {

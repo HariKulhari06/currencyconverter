@@ -2,11 +2,12 @@ package com.example.asssignmentsdktesttask.data.db.dao
 
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Update
 import com.example.asssignmentsdktesttask.data.db.entity.BaseEntity
 
 interface BaseDao<E : BaseEntity> {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(t: E)
 
     @Insert
