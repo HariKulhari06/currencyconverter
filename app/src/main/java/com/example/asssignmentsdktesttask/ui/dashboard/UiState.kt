@@ -1,11 +1,12 @@
 package com.example.asssignmentsdktesttask.ui.dashboard
 
+import com.example.asssignmentsdktesttask.domain.model.AppError
 import com.example.asssignmentsdktesttask.domain.model.Currency
 import com.example.asssignmentsdktesttask.domain.model.Symbol
 
 data class UiState(
     val isLoading: Boolean,
-    val error: Throwable?,
+    val error: AppError?,
     val amount: Double?,
     val baseCurrency: Symbol?,
     val currencies: List<Currency>?

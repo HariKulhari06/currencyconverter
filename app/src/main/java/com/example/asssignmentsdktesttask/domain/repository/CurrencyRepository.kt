@@ -6,6 +6,7 @@ import com.example.asssignmentsdktesttask.domain.model.Symbol
 import kotlinx.coroutines.flow.Flow
 
 interface CurrencyRepository {
+
     fun getBaseCurrency(): Flow<LoadState<Symbol>>
 
     fun getCurrencySymbol(): Flow<LoadState<List<Symbol>>>

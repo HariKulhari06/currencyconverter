@@ -3,12 +3,10 @@ package com.example.asssignmentsdktesttask.ui.dashboard
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.asssignmentsdktesttask.domain.usecase.CurrencyConverterUseCases
+import com.example.asssignmentsdktesttask.utils.ext.toAppError
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,7 +16,7 @@ class CurrencyConverterViewModel @Inject constructor(
 ) : ViewModel() {
     private val _amount = MutableStateFlow(1000.0)
 
-    private val _baseCurrency = useCases.getBaseCurrencyUseCase()
+    private val _baseCurrency = _amount.flatMapLatest { useCases.getBaseCurrencyUseCase() }
 
     private val _currencies = useCases.getSelectedCurrencyUseCase()
 
@@ -27,10 +25,9 @@ class CurrencyConverterViewModel @Inject constructor(
         flow2 = _currencies,
         flow3 = _amount
     ) { baseCurrency, currencies, amount ->
-
         UiState(
             isLoading = baseCurrency.isLoading,
-            error = baseCurrency.getErrorIfExists(),
+            error = baseCurrency.getErrorIfExists().toAppError(),
             amount = amount,
             baseCurrency = baseCurrency.getValueOrNull(),
             currencies = currencies
@@ -38,7 +35,7 @@ class CurrencyConverterViewModel @Inject constructor(
     }
     val uiState = _uiState
 
-    fun convertCurrency(amount: String) {
+    fun convertCurrency(amount: String = _amount.value.toString()) {
         viewModelScope.launch {
             _amount.value = amount.toDouble()
             useCases
@@ -48,5 +45,9 @@ class CurrencyConverterViewModel @Inject constructor(
 
                 }
         }
+    }
+
+    fun retry() {
+        _amount.value = _amount.value
     }
 }

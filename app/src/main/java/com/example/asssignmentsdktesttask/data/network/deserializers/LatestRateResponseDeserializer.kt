@@ -1,5 +1,6 @@
 package com.example.asssignmentsdktesttask.data.network.deserializers
 
+import com.example.asssignmentsdktesttask.data.network.exception.MaxRequestReachedException
 import com.example.asssignmentsdktesttask.data.network.response.LatestRateResponse
 import com.example.asssignmentsdktesttask.data.network.response.Rate
 import com.google.gson.JsonDeserializationContext
@@ -37,7 +38,8 @@ class LatestRateResponseDeserializer @Inject constructor() :
             }
 
             return LatestRateResponse(true, rates)
+        } else {
+            throw MaxRequestReachedException()
         }
-        return LatestRateResponse(false, emptyList())
     }
 }

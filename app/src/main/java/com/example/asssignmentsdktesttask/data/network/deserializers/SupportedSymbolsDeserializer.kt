@@ -1,5 +1,6 @@
 package com.example.asssignmentsdktesttask.data.network.deserializers
 
+import com.example.asssignmentsdktesttask.data.network.exception.MaxRequestReachedException
 import com.example.asssignmentsdktesttask.data.network.response.SupportedSymbolsResponse
 import com.example.asssignmentsdktesttask.data.network.response.Symbol
 import com.google.gson.JsonDeserializationContext
@@ -32,7 +33,8 @@ class SupportedSymbolsDeserializer @Inject constructor() :
             }
 
             return SupportedSymbolsResponse(true, symbols)
+        } else {
+            throw MaxRequestReachedException()
         }
-        return SupportedSymbolsResponse(false, emptyList())
     }
 }

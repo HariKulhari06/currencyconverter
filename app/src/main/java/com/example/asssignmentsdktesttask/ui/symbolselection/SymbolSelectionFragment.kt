@@ -4,29 +4,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.asssignmentsdktesttask.R
 import com.example.asssignmentsdktesttask.databinding.FragmentSymbolSelectionBinding
 import com.example.asssignmentsdktesttask.symbolSelectable
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.example.asssignmentsdktesttask.ui.dashboard.CurrencyConverterFragment
+import com.example.asssignmentsdktesttask.ui.dashboard.CurrencyConverterFragment.Companion.IS_SELECTED
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class SymbolSelectionFragment : BottomSheetDialogFragment() {
+class SymbolSelectionFragment : Fragment() {
     private val viewModel: SymbolSelectionViewModel by viewModels()
 
     private var _binding: FragmentSymbolSelectionBinding? = null
     private val binding get() = _binding!!
+
+    private var isCurrencyAdded = false
 
 
     override fun onCreateView(
@@ -57,10 +62,7 @@ class SymbolSelectionFragment : BottomSheetDialogFragment() {
                                         id(symbol.symbol)
                                         symbol(symbol)
                                         clickListener { _ ->
-                                            setFragmentResult(
-                                                "requestKey",
-                                                bundleOf("bundleKey" to true)
-                                            )
+                                            isCurrencyAdded = true
                                             viewModel.toggleSelection(symbol.symbol)
                                         }
                                     }
@@ -69,20 +71,21 @@ class SymbolSelectionFragment : BottomSheetDialogFragment() {
                         }
                 }
             }
-
-
         }
     }
 
     private fun initViews() {
-        binding.toolbar.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.itemId == R.id.action_done) {
-                dismiss()
-                return@setOnMenuItemClickListener true
+        val backPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                setFragmentResult(
+                    CurrencyConverterFragment.SELECT_CURRENCY_REQUEST_KEY,
+                    bundleOf(IS_SELECTED to isCurrencyAdded)
+                )
+                findNavController().popBackStack()
             }
-
-            return@setOnMenuItemClickListener false
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(backPressedCallback)
 
         binding.list.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
     }

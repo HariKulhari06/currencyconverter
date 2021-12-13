@@ -8,14 +8,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.asssignmentsdktesttask.R
 import com.example.asssignmentsdktesttask.btnAddCurrency
 import com.example.asssignmentsdktesttask.currencyCard
 import com.example.asssignmentsdktesttask.databinding.FragmentCurrencyConverterBinding
 import com.example.asssignmentsdktesttask.domain.model.Symbol
+import com.example.asssignmentsdktesttask.loadingAndErrorState
 import com.example.asssignmentsdktesttask.ui.dashboard.views.BaseCurrencyModel
-import com.example.asssignmentsdktesttask.ui.symbolselection.SymbolSelectionFragment
 import com.example.asssignmentsdktesttask.utils.SpacesItemDecoration
+import com.example.asssignmentsdktesttask.utils.ext.stringRes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -55,13 +57,16 @@ class CurrencyConverterFragment : Fragment(R.layout.fragment_currency_converter)
 
     private fun buildUiModels(uiState: UiState) {
         binding.recyclerView.withModels {
-
             if (uiState.isLoading || uiState.error != null) {
-                return@withModels
+                loadingAndErrorState {
+                    id(R.id.loading_model)
+                    isLoading(uiState.isLoading)
+                    errorMessage(uiState.error?.let { getString(it.stringRes()) })
+                    retryListener { _ -> viewModel.retry() }
+                }
             } else {
                 uiState.baseCurrency?.let { baseCurrency: Symbol ->
                     BaseCurrencyModel(
-                        lifecycleScope,
                         baseCurrency,
                         uiState.currencies?.firstOrNull()?.rate?.timeStamp,
                         convertCurrency = { viewModel.convertCurrency(it) })
@@ -91,18 +96,22 @@ class CurrencyConverterFragment : Fragment(R.layout.fragment_currency_converter)
     }
 
     private fun addCurrency() {
-        setFragmentResultListener("requestKey") { requestKey, bundle ->
-            val result = bundle.getBoolean("bundleKey")
-            if (result) {
-                viewModel.convertCurrency("100")
+        setFragmentResultListener(SELECT_CURRENCY_REQUEST_KEY) { _, bundle ->
+            if (bundle.getBoolean(IS_SELECTED)) {
+                viewModel.convertCurrency()
             }
         }
-        SymbolSelectionFragment().show(childFragmentManager, SymbolSelectionFragment.TAG)
+        findNavController().navigate(R.id.symbolSelectionFragment)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val SELECT_CURRENCY_REQUEST_KEY = "select_currency_request_key"
+        const val IS_SELECTED = "is_selected"
     }
 
 

@@ -4,4 +4,5 @@
     <item name="last_sync_model" type="id" />
     <item name="base_currency_model" type="id" />
     <item name="add_currency_model" type="id" />
+    <item name="loading_model" type="id" />
 </resources>
