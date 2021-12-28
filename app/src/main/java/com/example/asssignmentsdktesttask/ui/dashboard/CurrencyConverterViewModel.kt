@@ -33,7 +33,7 @@ class CurrencyConverterViewModel @Inject constructor(
             currencies = currencies
         )
     }
-    val uiState = _uiState
+    val uiState: Flow<UiState> = _uiState
 
     fun convertCurrency(amount: String = _amount.value.toString()) {
         viewModelScope.launch {

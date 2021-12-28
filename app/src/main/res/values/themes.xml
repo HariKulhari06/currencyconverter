@@ -49,4 +49,27 @@
     <style name="Theme.FixerApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.FixerApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Platform.Theme.CurrencyConverter" parent="Theme.Material3.DayNight">
+        <item name="android:statusBarColor">@color/black30</item>
+    </style>
+
+    <!-- The actual theme we use. This varies for light theme (here),
+         and values-night for dark theme. -->
+    <style name="Theme.CurrencyConverter" parent="Platform.Theme.CurrencyConverter">
+        <item name="colorPrimary">@color/blue500</item>
+        <item name="colorPrimaryDark">@color/blue800</item>
+        <item name="colorAccent">@color/yellow700</item>
+    </style>
+
+    <style name="Theme.CurrencyConverter.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.CurrencyConverter.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="Theme.CurrencyConverter.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
 </resources>

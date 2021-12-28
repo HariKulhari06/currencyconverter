@@ -1,7 +1,6 @@
 package com.example.asssignmentsdktesttask.utils
 
 import com.example.asssignmentsdktesttask.utils.ext.bodyOrThrow
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Call
@@ -16,7 +15,6 @@ class FlowCallAdapter<T>(
 
     override fun responseType() = responseType
 
-    @ExperimentalCoroutinesApi
     override fun adapt(call: Call<T>): Flow<T> = flow {
         val response: Response<T> = call.awaitResponse()
         emit(response.bodyOrThrow())

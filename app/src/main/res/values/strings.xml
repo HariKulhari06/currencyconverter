@@ -7,7 +7,8 @@
     <string name="retry">Retry</string>
 
     <string name="something_went_wrong">Something Went Wrong</string>
-    <string name="last_update">Last updated: %s</string>
+    <string name="last_update">Last updated:
+        %s</string>
 
     <!-- Generic Error Messages -->
     <string name="no_internet_connection">No internet connection</string>
